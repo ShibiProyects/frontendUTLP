@@ -1,5 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --h1: 4rem;
+  --h2: 3.5rem;
+  --h3: 3rem;
+  --h4: 2.5rem;
+  --h5: 2.2rem;
+  --h6: 1.8rem;
+  --p: 1.3rem;
+
+  --primary: #2b4c7e;
+  --secondary: #005e90;
+  --accent: #e5b300;
+  --dark: #2d3748;
+  --light: #ffffff;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+input {
+  font-size: var(--p);
+}
+
+label {
+  font-size: var(--p);
+}
+
+button {
+  border: none;
+  overflow: none;
+}
+
+h1 {
+  font-size: var(--h1);
+  font-family: "Inter", sans-serif;
+}
+
+h2 {
+  font-size: var(--h2);
+  font-family: "Inter", sans-serif;
+}
+
+h3 {
+  font-size: var(--h3);
+  font-family: "Inter", sans-serif;
+}
+
+h4 {
+  font-size: var(--h4);
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+h5 {
+  font-size: var(--h5);
+}
+
+h6 {
+  font-size: var(--h6);
+}
+
+p {
+  font-size: var(--p);
+  font-family: "Source Sans Pro", sans-serif;
 }
