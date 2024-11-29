@@ -1,8 +1,9 @@
 import { useForm } from "react-hook-form";
 import ButtonStyled from "../../components/button-styled/ButtonStyled";
 import { TextField } from "../../components/text-field/TextField";
-import { Link } from "react-router-dom";
-import { PublicRoutes } from "../../../models/routes";
+import { Link, useNavigate } from "react-router-dom";
+import { PublicRoutes, StudentRoutes } from "../../../routes/routes";
+import { useUserContext } from "../../../context/UserProvider";
 
 type LoginForm = {
   username: string;
@@ -11,14 +12,35 @@ type LoginForm = {
 };
 
 function LoginPage() {
+  const navigate = useNavigate();
+  const { createUser } = useUserContext();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<LoginForm>();
 
-  const onSubmit = (data: LoginForm) => {
-    console.log(data);
+  const onSubmit = async (data: LoginForm) => {
+    try {
+      const response = await fetch("/users.json");
+      if (!response.ok) {
+        throw new Error("Error al cargar el archivo JSON");
+      }
+      const responseJSON = await response.json();
+
+      const userValid = responseJSON.find(
+        (user: { email: string; password: string }) =>
+          user.email === data.email && user.password === data.password
+      );
+      if (userValid) {
+        createUser(userValid.email, userValid.role);
+        navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
+      } else {
+        console.log("Credenciales incorrectas");
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (

@@ -10,6 +10,7 @@
   --h5: 2.2rem;
   --h6: 1.8rem;
   --p: 1.3rem;
+  --a: 1rem;
 
   --primary: #2b4c7e;
   --secondary: #005e90;
@@ -68,4 +69,8 @@ h6 {
 p {
   font-size: var(--p);
   font-family: "Source Sans Pro", sans-serif;
+}
+
+a {
+  font-size: var(--a);
 }

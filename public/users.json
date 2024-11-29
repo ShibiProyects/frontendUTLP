@@ -2,14 +2,14 @@
   {
     "id": 1,
     "username": "user",
-    "gmail": "user@u",
+    "email": "user@u",
     "password": "123",
     "role": "student"
   },
   {
     "id": 2,
     "username": "teacher",
-    "gmail": "teacher@t",
+    "email": "teacher@t",
     "password": "123",
     "role": "teacher"
   }

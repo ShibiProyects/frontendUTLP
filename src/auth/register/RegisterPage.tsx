@@ -5,7 +5,7 @@ import Toast from "../../components/toast/Toast";
 import { useState } from "react";
 import { ToastType } from "../../components/toast/toast.model";
 import { Link } from "react-router-dom";
-import { PublicRoutes } from "../../../models/routes";
+import { PublicRoutes } from "../../../routes/routes";
 
 type RegisterForm = {
   username: string;

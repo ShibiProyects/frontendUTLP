@@ -1,8 +1,8 @@
 import { Navigate, Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
-import { TeacherRoutes } from "../../../models/routes";
+import { CommonRoutes, TeacherRoutes } from "../../../routes/routes";
 import DashboardPage from "./dashboard/DashboardPage";
-import AccountPage from "./account/AccountPage";
+import AccountPage from "../common/AccountPage";
 
 function Teacher() {
   return (
@@ -14,7 +14,7 @@ function Teacher() {
         >
           Dashboard
         </Link>
-        <Link to={`/${TeacherRoutes.TEACHER}/${TeacherRoutes.ACCOUNT}`} replace>
+        <Link to={`/${TeacherRoutes.TEACHER}/${CommonRoutes.ACCOUNT}`} replace>
           Account
         </Link>
       </nav>
@@ -22,7 +22,7 @@ function Teacher() {
       <Routes>
         <Route path="/" element={<Navigate to={TeacherRoutes.DASHBOARD} />} />
         <Route path={TeacherRoutes.DASHBOARD} element={<DashboardPage />} />
-        <Route path={TeacherRoutes.ACCOUNT} element={<AccountPage />} />
+        <Route path={CommonRoutes.ACCOUNT} element={<AccountPage />} />
       </Routes>
     </>
   );
