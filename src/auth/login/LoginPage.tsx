@@ -1,8 +1,13 @@
 import { useForm } from "react-hook-form";
 import { TextField } from "../../components/TextField";
 import { Link, useNavigate } from "react-router-dom";
-import { PublicRoutes, StudentRoutes } from "../../../routes/routes";
+import {
+  PublicRoutes,
+  StudentRoutes,
+  TeacherRoutes,
+} from "../../../routes/routes";
 import { useUserContext } from "../../../context/UserProvider";
+import { Roles } from "../../../models/user.model";
 
 type LoginForm = {
   username: string;
@@ -33,7 +38,13 @@ function LoginPage() {
       );
       if (userValid) {
         createUser(userValid.email, userValid.role);
-        navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
+
+        if (userValid.role == Roles.STUDENT_ROLE) {
+          navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
+        }
+        if (userValid.role == Roles.TEACHER_ROLE) {
+          navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
+        }
       } else {
         console.log("Credenciales incorrectas");
       }

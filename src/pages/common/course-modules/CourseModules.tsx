@@ -1,4 +1,3 @@
-import LinkStyled from "../../../components/LinkStyled";
 import ModuleItem from "./components/ModuleItem";
 
 function CourseModules() {
