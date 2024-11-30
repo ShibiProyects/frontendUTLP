@@ -6,6 +6,7 @@ export enum PublicRoutes {
 export enum CommonRoutes {
   HOME = "home",
   ACCOUNT = "account",
+  COURSE_MODULES = "course-modules",
 }
 
 export enum StudentRoutes {

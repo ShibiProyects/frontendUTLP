@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { CommonRoutes, TeacherRoutes } from "../../../routes/routes";
 import DashboardPage from "./dashboard/DashboardPage";
 import AccountPage from "../common/AccountPage";
+import CourseModules from "../common/CourseModules";
 
 function Teacher() {
   return (
@@ -23,6 +24,7 @@ function Teacher() {
         <Route path="/" element={<Navigate to={TeacherRoutes.DASHBOARD} />} />
         <Route path={TeacherRoutes.DASHBOARD} element={<DashboardPage />} />
         <Route path={CommonRoutes.ACCOUNT} element={<AccountPage />} />
+        <Route path={CommonRoutes.COURSE_MODULES} element={<CourseModules />} />
       </Routes>
     </>
   );

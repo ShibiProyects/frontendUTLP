@@ -5,6 +5,7 @@ import { SVGhome, SVGsettings } from "../../../assets/Icons";
 import HomePage from "../common/HomePage";
 import AccountPage from "../common/AccountPage";
 import { useUserContext } from "../../../context/UserProvider";
+import CourseModules from "../common/CourseModules";
 
 function Student() {
   const { logout } = useUserContext();
@@ -12,7 +13,9 @@ function Student() {
     <>
       <nav className=" min-h-10 py-2 w-full bg-blue-300 flex justify-around items-center sticky top-0 left-0 ">
         <Link to={`/${StudentRoutes.STUDENT}/${CommonRoutes.HOME}`}>
-          <SVGhome />
+          <span className="h-10 w-10">
+            <SVGhome />
+          </span>
         </Link>
         <Link to={`/${StudentRoutes.STUDENT}/${CommonRoutes.ACCOUNT}`}>
           <SVGsettings />
@@ -29,6 +32,7 @@ function Student() {
         <Route path="/" element={<Navigate to={CommonRoutes.HOME} />} />
         <Route path={CommonRoutes.HOME} element={<HomePage />} />
         <Route path={CommonRoutes.ACCOUNT} element={<AccountPage />} />
+        <Route path={CommonRoutes.COURSE_MODULES} element={<CourseModules />} />
       </Routes>
     </>
   );
