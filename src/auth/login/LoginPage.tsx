@@ -1,6 +1,5 @@
 import { useForm } from "react-hook-form";
-import ButtonStyled from "../../components/button-styled/ButtonStyled";
-import { TextField } from "../../components/text-field/TextField";
+import { TextField } from "../../components/TextField";
 import { Link, useNavigate } from "react-router-dom";
 import { PublicRoutes, StudentRoutes } from "../../../routes/routes";
 import { useUserContext } from "../../../context/UserProvider";
@@ -84,7 +83,7 @@ function LoginPage() {
             />
           </div>
 
-          <ButtonStyled type="submit">Login</ButtonStyled>
+          <button type="submit">Login</button>
         </form>
       </div>
     </>

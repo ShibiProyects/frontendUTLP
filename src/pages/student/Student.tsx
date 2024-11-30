@@ -2,10 +2,10 @@ import { Navigate, Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
 import { CommonRoutes, StudentRoutes } from "../../../routes/routes";
 import { SVGhome, SVGsettings } from "../../../assets/Icons";
-import HomePage from "../common/HomePage";
-import AccountPage from "../common/AccountPage";
+import HomePage from "../common/home-page/HomePage";
+import AccountPage from "../common/account-page/AccountPage";
 import { useUserContext } from "../../../context/UserProvider";
-import CourseModules from "../common/CourseModules";
+import CourseModules from "../common/course-modules/CourseModules";
 
 function Student() {
   const { logout } = useUserContext();

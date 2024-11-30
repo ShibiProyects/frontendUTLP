@@ -1,9 +1,8 @@
 import { useForm } from "react-hook-form";
-import ButtonStyled from "../../components/button-styled/ButtonStyled";
-import { TextField } from "../../components/text-field/TextField";
-import Toast from "../../components/toast/Toast";
+import { TextField } from "../../components/TextField";
+import Toast from "../../components/Toast";
 import { useState } from "react";
-import { ToastType } from "../../components/toast/toast.model";
+import { ToastType } from "../../components/toast.model";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
 
@@ -109,7 +108,7 @@ function RegisterPage() {
             />
           )}
 
-          <ButtonStyled type="submit">Register</ButtonStyled>
+          <button type="submit">Register</button>
         </form>
       </div>
     </>

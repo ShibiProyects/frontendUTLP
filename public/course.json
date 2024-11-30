@@ -1,0 +1,73 @@
+[
+  {
+    "id": 1,
+    "title": "Base de datos 1",
+    "teacher": "Gentleman programming",
+    "link_meet": "www.youtube.com",
+    "teacher_email": "alan@a",
+    "users": [
+      {
+        "id": 1
+      },
+
+      {
+        "id": 2
+      }
+    ],
+    "modules": [
+      {
+        "id": 1,
+        "name": "Introducción a base da datos",
+        "section": [
+          {
+            "id": 1,
+            "title": "Clase 1",
+            "type": "text",
+            "url_images": "www.youtube.com"
+          },
+          {
+            "id": 2,
+            "title": "Clase 2",
+            "type": "text",
+            "url_images": "www.google.com"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "CURSO NODEJS",
+    "teacher": "Midudev",
+    "link_meet": "www.youtube.com",
+    "teacher_email": "midu@m",
+    "users": [
+      {
+        "id": 4
+      },
+      {
+        "id": 1
+      }
+    ],
+    "modules": [
+      {
+        "id": 1,
+        "name": "discord desde 0",
+        "section": [
+          {
+            "id": 1,
+            "title": "Clase 1",
+            "type": "text",
+            "url_images": "www.youtube.com"
+          },
+          {
+            "id": 2,
+            "title": "Clase 2",
+            "type": "text",
+            "url_images": "www.google.com"
+          }
+        ]
+      }
+    ]
+  }
+]

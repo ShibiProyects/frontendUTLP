@@ -1,15 +1,36 @@
 [
   {
     "id": 1,
-    "username": "user",
-    "email": "user@u",
+    "username": "Matías",
+    "email": "m@m",
     "password": "123",
     "role": "student"
   },
   {
     "id": 2,
-    "username": "teacher",
-    "email": "teacher@t",
+    "username": "Nicolas",
+    "email": "n@n",
+    "password": "123",
+    "role": "student"
+  },
+  {
+    "id": 3,
+    "username": "Alan",
+    "email": "alan@a",
+    "password": "123",
+    "role": "teacher"
+  },
+  {
+    "id": 4,
+    "username": "Ale",
+    "email": "a@a",
+    "password": "123",
+    "role": "student"
+  },
+  {
+    "id": 5,
+    "username": "Midudev",
+    "email": "midu@m",
     "password": "123",
     "role": "teacher"
   }

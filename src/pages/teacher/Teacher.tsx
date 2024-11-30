@@ -2,8 +2,8 @@ import { Navigate, Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
 import { CommonRoutes, TeacherRoutes } from "../../../routes/routes";
 import DashboardPage from "./dashboard/DashboardPage";
-import AccountPage from "../common/AccountPage";
-import CourseModules from "../common/CourseModules";
+import AccountPage from "../common/account-page/AccountPage";
+import CourseModules from "../common/course-modules/CourseModules";
 
 function Teacher() {
   return (
