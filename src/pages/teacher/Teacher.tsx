@@ -5,33 +5,20 @@ import DashboardPage from "./dashboard/DashboardPage";
 import AccountPage from "../common/account-page/AccountPage";
 import CourseModules from "../common/course-modules/CourseModules";
 import HomePage from "../common/home-page/HomePage";
-import { useUserContext } from "../../../context/UserProvider";
+import NavBar from "../../components/NavBar";
+import { Roles } from "../../../models/user.model";
 
 function Teacher() {
-  const { logout } = useUserContext();
-
   return (
     <>
-      <nav className=" h-[40px] bg-blue-300 flex justify-around items-center ">
-        <Link to={`/${TeacherRoutes.TEACHER}/${CommonRoutes.HOME}`} replace>
-          Home
-        </Link>
+      <NavBar role={Roles.TEACHER_ROLE}>
         <Link
           to={`/${TeacherRoutes.TEACHER}/${TeacherRoutes.DASHBOARD}`}
           replace
         >
           Dashboard
         </Link>
-        <Link to={`/${TeacherRoutes.TEACHER}/${CommonRoutes.ACCOUNT}`} replace>
-          Account
-        </Link>
-        <button
-          className=" bg-red-500 text-white p-2 rounded-lg font-bold"
-          onClick={logout}
-        >
-          Cerrar sesión
-        </button>
-      </nav>
+      </NavBar>
 
       <Routes>
         <Route path="/" element={<Navigate to={CommonRoutes.HOME} />} />
