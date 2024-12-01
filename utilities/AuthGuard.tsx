@@ -1,20 +1,26 @@
-import { Outlet, useNavigate } from "react-router";
-import { useUserContext } from "../context/UserProvider";
-import { PublicRoutes } from "../routes/routes";
+import { Navigate, Outlet } from "react-router";
+import { Roles } from "../models/user.model";
+import { PublicRoutes, StudentRoutes, TeacherRoutes } from "../routes/routes";
 
-type AuthGuardProps = {
-  role: "student" | "teacher";
-};
+function AuthGuard({ role }: { role: Roles }) {
+  const roleStorage = localStorage.getItem("role");
 
-function AuthGuard({ role }: AuthGuardProps) {
-  const navigate = useNavigate();
-  const { user } = useUserContext();
-
-  if (user?.role == role) {
-    return <Outlet />;
-  } else {
-    return navigate(`/${PublicRoutes.LOGIN}`, { replace: true });
+  if (!roleStorage) {
+    console.log("wtf pal lobby");
+    return <Navigate to={`/${PublicRoutes.LOGIN}`} replace />;
   }
+
+  if (roleStorage !== role) {
+    switch (roleStorage) {
+      case Roles.STUDENT_ROLE:
+        return <Navigate to={`/${StudentRoutes.STUDENT}`} replace />;
+
+      case Roles.TEACHER_ROLE:
+        return <Navigate to={`/${TeacherRoutes.TEACHER}`} replace />;
+    }
+  }
+
+  return <Outlet />;
 }
 
 export default AuthGuard;

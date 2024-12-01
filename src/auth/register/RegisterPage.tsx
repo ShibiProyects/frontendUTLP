@@ -1,8 +1,5 @@
 import { useForm } from "react-hook-form";
 import { TextField } from "../../components/TextField";
-import Toast from "../../components/Toast";
-import { useState } from "react";
-import { ToastType } from "../../components/toast.model";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
 
@@ -20,19 +17,8 @@ function RegisterPage() {
     formState: { errors },
   } = useForm<RegisterForm>();
 
-  const [toastMessage, setToastMessage] = useState<ToastType | null>(null);
-
   const onSubmit = (data: RegisterForm) => {
-    if (data.password !== data.confirm_password) {
-      setToastMessage({
-        title: "Error",
-        message: "Password dont match",
-        onClose: () => setToastMessage(null),
-      });
-      return;
-    }
-
-    console.log(data);
+    if (data.password !== data.confirm_password) alert("Password dont match");
   };
 
   return (
@@ -100,13 +86,6 @@ function RegisterPage() {
               error={errors.confirm_password?.message}
             />
           </div>
-          {toastMessage && (
-            <Toast
-              onClose={toastMessage.onClose}
-              title={toastMessage?.title}
-              message={toastMessage?.message}
-            />
-          )}
 
           <button type="submit">Register</button>
         </form>

@@ -5,6 +5,8 @@ import Student from "./pages/student/Student";
 import Teacher from "./pages/teacher/Teacher";
 import RegisterPage from "./auth/register/RegisterPage";
 import { UserProvider } from "../context/UserProvider";
+import AuthGuard from "../utilities/AuthGuard";
+import { Roles } from "../models/user.model";
 
 function App() {
   return (
@@ -20,8 +22,12 @@ function App() {
           <Route path="/" element={<Navigate to={PublicRoutes.LOGIN} />} />
           <Route path={PublicRoutes.REGISTER} element={<RegisterPage />} />
           <Route path={PublicRoutes.LOGIN} element={<LoginPage />} />
-          <Route path={`${StudentRoutes.STUDENT}/*`} element={<Student />} />
-          <Route path={`${TeacherRoutes.TEACHER}/*`} element={<Teacher />} />
+          <Route element={<AuthGuard role={Roles.STUDENT_ROLE} />}>
+            <Route path={`${StudentRoutes.STUDENT}/*`} element={<Student />} />
+          </Route>
+          <Route element={<AuthGuard role={Roles.TEACHER_ROLE} />}>
+            <Route path={`${TeacherRoutes.TEACHER}/*`} element={<Teacher />} />
+          </Route>
         </Routes>
       </UserProvider>
     </BrowserRouter>
