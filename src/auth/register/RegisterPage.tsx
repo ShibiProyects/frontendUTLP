@@ -4,10 +4,12 @@ import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
 
 type RegisterForm = {
+  firstName: string;
+  lastName: string;
   username: string;
   email: string;
   password: string;
-  confirm_password: string;
+  confirmPassword: string;
 };
 
 function RegisterPage() {
@@ -18,7 +20,8 @@ function RegisterPage() {
   } = useForm<RegisterForm>();
 
   const onSubmit = (data: RegisterForm) => {
-    if (data.password !== data.confirm_password) alert("Password dont match");
+    console.log(data);
+    if (data.password !== data.confirmPassword) alert("Password dont match");
   };
 
   return (
@@ -32,6 +35,32 @@ function RegisterPage() {
       <div className="h-full items-center justify-center flex flex-col ">
         <h3>Register</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="flex flex-col mb-4 gap-1">
+            <TextField
+              {...register("firstName", {
+                required: {
+                  value: true,
+                  message: "First name is required",
+                },
+              })}
+              label="First name"
+              error={errors.username?.message}
+            />
+          </div>
+
+          <div className="flex flex-col mb-4 gap-1">
+            <TextField
+              {...register("lastName", {
+                required: {
+                  value: true,
+                  message: "Last name is required",
+                },
+              })}
+              label="Last name"
+              error={errors.username?.message}
+            />
+          </div>
+
           <div className="flex flex-col mb-4 gap-1">
             <TextField
               {...register("username", {
@@ -75,7 +104,7 @@ function RegisterPage() {
 
           <div className="flex flex-col mb-4 gap-1">
             <TextField
-              {...register("confirm_password", {
+              {...register("confirmPassword", {
                 required: {
                   value: true,
                   message: "Confirm password is required",
@@ -83,7 +112,7 @@ function RegisterPage() {
               })}
               type="password"
               label="Confirm password"
-              error={errors.confirm_password?.message}
+              error={errors.confirmPassword?.message}
             />
           </div>
 

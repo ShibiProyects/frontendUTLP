@@ -6,17 +6,22 @@
   --h1: 4rem;
   --h2: 3.5rem;
   --h3: 3rem;
-  --h4: 2.5rem;
-  --h5: 2.2rem;
-  --h6: 1.8rem;
-  --p: 1.3rem;
+  --h4: 2rem;
+  --h5: 1.6rem;
+  --h6: 1.3rem;
+  --p: 1.1rem;
   --a: 1rem;
 
-  --primary: #2b4c7e;
-  --secondary: #005e90;
-  --accent: #e5b300;
-  --dark: #2d3748;
-  --light: #ffffff;
+  --primary: #037afe;
+  --secondary: #6a747d;
+  --success: #27a745;
+  --danger: #dc3544;
+  --warning: #ffc107;
+  --info: #15a5b9;
+
+  --dark: #435057;
+
+  --bg_inputs: #f1f2f4;
 }
 
 * {
@@ -34,7 +39,6 @@ label {
 }
 
 button {
-  border: none;
   overflow: none;
 }
 

@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import { useUserContext } from "../../../../context/UserProvider";
 import CourseCard from "../components/CourseCard";
 import { Roles } from "../../../../models/user.model";
@@ -10,15 +9,6 @@ import {
 
 function HomePage() {
   const { user } = useUserContext();
-  const [data, setData] = useState(null);
-
-  // useEffect(() => {
-  //   fetch("/course.json/1")
-  //     .then((res) => res.json())
-  //     .then((res) => {
-  //       setData(res);
-  //     });
-  // }, [user?.email]);
 
   return (
     <div>

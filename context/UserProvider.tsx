@@ -1,4 +1,4 @@
-import React, { ReactNode, useContext, useState } from "react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { Roles, UserModel } from "../models/user.model";
 import { useNavigate } from "react-router";
 import { PublicRoutes } from "../routes/routes";
@@ -27,6 +27,15 @@ export function UserProvider({ children }: UserProviderProps) {
   const [user, setUser] = useState<UserModel | null>(null);
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const email = localStorage.getItem("email");
+    const role = localStorage.getItem("role") as Roles;
+
+    if (email && role) {
+      setUser({ email, role });
+    }
+  }, []);
 
   function createUser(email: string, role: Roles) {
     setUser({ email, role });

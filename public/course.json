@@ -3,15 +3,17 @@
     "id": 1,
     "title": "Base de datos 1",
     "teacher": "Gentleman programming",
-    "link_meet": "www.youtube.com",
-    "teacher_email": "alan@a",
+    "meet": "www.youtube.com",
+    "teacher_id": "alan@a",
     "users": [
       {
-        "id": 1
+        "id": 1,
+        "username": "Pedro"
       },
 
       {
-        "id": 2
+        "id": 2,
+        "username": "Pedro"
       }
     ],
     "modules": [

@@ -22,9 +22,11 @@ function App() {
           <Route path="/" element={<Navigate to={PublicRoutes.LOGIN} />} />
           <Route path={PublicRoutes.REGISTER} element={<RegisterPage />} />
           <Route path={PublicRoutes.LOGIN} element={<LoginPage />} />
+
           <Route element={<AuthGuard role={Roles.STUDENT_ROLE} />}>
             <Route path={`${StudentRoutes.STUDENT}/*`} element={<Student />} />
           </Route>
+
           <Route element={<AuthGuard role={Roles.TEACHER_ROLE} />}>
             <Route path={`${TeacherRoutes.TEACHER}/*`} element={<Teacher />} />
           </Route>

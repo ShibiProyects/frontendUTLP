@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { SVGlens } from "../../assets/Icons";
 
 interface ListUsersProps {
   name: string[];
@@ -7,7 +8,6 @@ interface ListUsersProps {
 function ListUsers({ name }: ListUsersProps) {
   const [searchInput, setSearchInput] = useState("");
 
-  // Filtramos los nombres según la búsqueda
   const filteredNames = name.filter((res) =>
     res.toLowerCase().includes(searchInput.toLowerCase())
   );
@@ -15,24 +15,29 @@ function ListUsers({ name }: ListUsersProps) {
   return (
     <>
       <div className="pb-5 flex flex-col items-center">
-        <label htmlFor="find_student">Buscar estudiante:</label>
-        <input
-          type="text"
-          id="find_student"
-          placeholder="Ingresar nombre"
-          className="border rounded-md px-3 py-1"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
+        <div className="flex items-center bg-bg_inputs px-2 py-1 rounded-lg   ">
+          <span className=" h-6 w-6 ">
+            <SVGlens />
+          </span>
+          <input
+            type="text"
+            id="find_student"
+            placeholder="Buscar estudiante"
+            className="border rounded-md px-3 py-1 bg-transparent outline-none  "
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+        </div>
       </div>
-      <ul className="max-h-[50vh] overflow-y-scroll flex flex-col gap-2">
+      <ul className="overflow-y-scroll flex flex-col h-[40vh]">
         {filteredNames.length > 0 ? (
           filteredNames.map((res, index) => (
             <li
               key={index}
-              className="bg-gray-200 text-black rounded-md text-lg py-2 px-4"
+              className="items-center justify-between hover:bg-bg_inputs  mx-2 text-black rounded-md text-lg  py-2 px-4 flex  "
             >
               {res}
+              <span className="text-sm">Estudiante</span>
             </li>
           ))
         ) : (

@@ -17,7 +17,7 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
   };
 
   return (
-    <nav className=" h-[40px] bg-blue-300 flex justify-around items-center ">
+    <nav className=" h-[40px] bg-dark text-white flex py-8 justify-around items-center ">
       <Link to={`/${routeMain()}/${CommonRoutes.HOME}`} replace>
         Home
       </Link>
@@ -27,7 +27,7 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
       {children}
 
       <button
-        className=" bg-red-500 text-white p-2 rounded-lg font-bold"
+        className=" bg-danger text-white p-2 rounded-lg font-semibold"
         onClick={logout}
       >
         Cerrar sesión
