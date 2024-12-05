@@ -8,9 +8,9 @@ import {
 } from "../../../routes/routes";
 import { useUserContext } from "../../../context/UserProvider";
 import { Roles } from "../../../models/user.model";
+import decodeJWT from "../../../utilities/decodeJWT";
 
 type LoginForm = {
-  username: string;
   email: string;
   password: string;
 };
@@ -26,30 +26,36 @@ function LoginPage() {
 
   const onSubmit = async (data: LoginForm) => {
     try {
-      const response = await fetch("/users.json");
+      const response = await fetch("http://localhost:400/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: data.email, password: data.password }),
+      });
+
       if (!response.ok) {
-        throw new Error("Error al cargar el archivo JSON");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Error desconocido");
       }
-      const responseJSON = await response.json();
 
-      const userValid = responseJSON.find(
-        (user: { email: string; password: string }) =>
-          user.email === data.email && user.password === data.password
-      );
-      if (userValid) {
-        createUser(userValid.email, userValid.role);
+      const responseData = await response.json();
 
-        if (userValid.role == Roles.STUDENT_ROLE) {
-          navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
-        }
-        if (userValid.role == Roles.TEACHER_ROLE) {
+      if (responseData) {
+        const jwtDecode = decodeJWT(responseData.token);
+        const jwtRoles = jwtDecode.roles;
+        createUser(responseData.token, jwtRoles);
+
+        if (jwtRoles[0] === Roles.TEACHER_ROLE) {
           navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
         }
-      } else {
-        console.log("Credenciales incorrectas");
+
+        if (jwtRoles[0] === Roles.STUDENT_ROLE) {
+          navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
+        }
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error(error);
     }
   };
 
