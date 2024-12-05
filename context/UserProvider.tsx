@@ -5,7 +5,7 @@ import { PublicRoutes } from "../routes/routes";
 
 interface UserContextType {
   user: UserModel | null;
-  createUser: (email: string, role: Roles) => void;
+  createUser: (jwt: string, role: Roles) => void;
   logout: () => void;
 }
 
@@ -29,18 +29,18 @@ export function UserProvider({ children }: UserProviderProps) {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const email = localStorage.getItem("email");
+    const jwt = localStorage.getItem("jwt");
     const role = localStorage.getItem("role") as Roles;
 
-    if (email && role) {
-      setUser({ email, role });
+    if (jwt && role) {
+      setUser({ jwt, role });
     }
   }, []);
 
-  function createUser(email: string, role: Roles) {
-    setUser({ email, role });
+  function createUser(jwt: string, role: Roles) {
+    setUser({ jwt, role });
 
-    localStorage.setItem("email", email);
+    localStorage.setItem("jwt", jwt);
     localStorage.setItem("role", role);
   }
 
