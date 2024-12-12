@@ -2,24 +2,16 @@ import { useForm } from "react-hook-form";
 import { TextField } from "../../components/TextField";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
-
-type RegisterForm = {
-  firstName: string;
-  lastName: string;
-  username: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-};
+import { UserModelForm } from "../../../models/user.model";
 
 function RegisterPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterForm>();
+  } = useForm<UserModelForm>();
 
-  const onSubmit = (data: RegisterForm) => {
+  const onSubmit = (data: UserModelForm) => {
     console.log(data);
     if (data.password !== data.confirmPassword) alert("Password dont match");
   };

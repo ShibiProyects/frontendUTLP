@@ -25,38 +25,41 @@ function LoginPage() {
   } = useForm<LoginForm>();
 
   const onSubmit = async (data: LoginForm) => {
-    try {
-      const response = await fetch("http://localhost:400/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email: data.email, password: data.password }),
-      });
+    createUser(data.email, Roles.TEACHER_ROLE);
+    navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
 
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Error desconocido");
-      }
+    // try {
+    //   const response = await fetch("http://localhost:400/login", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({ email: data.email, password: data.password }),
+    //   });
 
-      const responseData = await response.json();
+    //   if (!response.ok) {
+    //     const errorData = await response.json();
+    //     throw new Error(errorData.error || "Error desconocido");
+    //   }
 
-      if (responseData) {
-        const jwtDecode = decodeJWT(responseData.token);
-        const jwtRoles = jwtDecode.roles;
-        createUser(responseData.token, jwtRoles);
+    //   const responseData = await response.json();
 
-        if (jwtRoles[0] === Roles.TEACHER_ROLE) {
-          navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
-        }
+    //   if (responseData) {
+    //     const jwtDecode = decodeJWT(responseData.token);
+    //     const jwtRoles = jwtDecode.roles;
+    //     createUser(responseData.token, jwtRoles);
 
-        if (jwtRoles[0] === Roles.STUDENT_ROLE) {
-          navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
+    //     if (jwtRoles[0] === Roles.TEACHER_ROLE) {
+    //       navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
+    //     }
+
+    //     if (jwtRoles[0] === Roles.STUDENT_ROLE) {
+    //       navigate(`/${StudentRoutes.STUDENT}`, { replace: true });
+    //     }
+    //   }
+    // } catch (error) {
+    //   console.error(error);
+    // }
   };
 
   return (

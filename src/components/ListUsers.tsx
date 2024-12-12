@@ -1,11 +1,12 @@
+import { Search } from "lucide-react";
 import { useState } from "react";
-import { SVGlens } from "../../assets/Icons";
 
 interface ListUsersProps {
   name: string[];
+  status?: "green" | "red" | "yellow";
 }
 
-function ListUsers({ name }: ListUsersProps) {
+function ListUsers({ name, status }: ListUsersProps) {
   const [searchInput, setSearchInput] = useState("");
 
   const filteredNames = name.filter((res) =>
@@ -17,7 +18,7 @@ function ListUsers({ name }: ListUsersProps) {
       <div className="pb-5 flex flex-col items-center">
         <div className="flex items-center bg-bg_inputs px-2 py-1 rounded-lg   ">
           <span className=" h-6 w-6 ">
-            <SVGlens />
+            <Search />
           </span>
           <input
             type="text"
@@ -34,10 +35,21 @@ function ListUsers({ name }: ListUsersProps) {
           filteredNames.map((res, index) => (
             <li
               key={index}
-              className="items-center justify-between hover:bg-bg_inputs  mx-2 text-black rounded-md text-lg  py-2 px-4 flex  "
+              className="items-center justify-between hover:bg-accent  mx-2 text-black rounded-md text-lg  py-2 px-4 flex  "
             >
               {res}
-              <span className="text-sm">Estudiante</span>
+              <div className="flex gap-2 relative items-center">
+                <span className="text-sm">Estudiante</span>
+                <div
+                  className={`${
+                    status === "green"
+                      ? "bg-success"
+                      : status === "red"
+                      ? "bg-danger"
+                      : "bg-dark"
+                  } rounded-full h-3 w-3 border`}
+                ></div>
+              </div>
             </li>
           ))
         ) : (

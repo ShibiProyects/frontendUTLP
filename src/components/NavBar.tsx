@@ -7,6 +7,7 @@ import {
 import { useUserContext } from "../../context/UserProvider";
 import { ReactNode } from "react";
 import { Roles } from "../../models/user.model";
+import { Button } from "./ui/button";
 
 function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
   const { logout } = useUserContext();
@@ -17,7 +18,7 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
   };
 
   return (
-    <nav className=" h-[40px] bg-dark text-white flex py-8 justify-around items-center ">
+    <nav className=" h-[60px] bg-ring text-white flex  justify-around items-center ">
       <Link to={`/${routeMain()}/${CommonRoutes.HOME}`} replace>
         Home
       </Link>
@@ -26,12 +27,13 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
       </Link>
       {children}
 
-      <button
-        className=" bg-danger text-white p-2 rounded-lg font-semibold"
+      <Button
+        className="text-white  p-2 rounded-lg font-semibold"
         onClick={logout}
+        variant="destructive"
       >
         Cerrar sesión
-      </button>
+      </Button>
     </nav>
   );
 }

@@ -6,7 +6,6 @@ function AuthGuard({ role }: { role: Roles }) {
   const roleStorage = localStorage.getItem("role");
 
   if (!roleStorage) {
-    console.log("wtf pal lobby");
     return <Navigate to={`/${PublicRoutes.LOGIN}`} replace />;
   }
 
