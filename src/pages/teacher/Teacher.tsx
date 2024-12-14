@@ -29,7 +29,7 @@ function Teacher() {
 
         <Route path={TeacherRoutes.DASHBOARD} element={<DashboardPage />} />
         <Route
-          path={`${TeacherRoutes.STUDENT_DETAILS}/*`}
+          path={`${TeacherRoutes.STUDENT_DETAILS}/:id`}
           element={<StudentDetails />}
         />
       </Routes>

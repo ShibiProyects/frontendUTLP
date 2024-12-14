@@ -1,8 +1,8 @@
 import { useParams } from "react-router";
 
 function StudentDetails() {
-  const { id: studentId } = useParams<{ id: string }>();
+  const { id } = useParams<{ id: string }>();
 
-  return <div className="">a{studentId}</div>;
+  return <div className="">{id}</div>;
 }
 export default StudentDetails;

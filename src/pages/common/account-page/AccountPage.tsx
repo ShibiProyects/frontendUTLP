@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
@@ -20,12 +20,13 @@ import {
   FormLabel,
   FormMessage,
 } from "@/features/auth/components/form";
-import { UserModelForm } from "@/features/auth/auth.model";
+import { RegisterForm } from "@/features/auth/auth.model";
 
 const profileSchema = z.object({
   firstName: z.string().min(3, "First name must be at least 3 characters"),
   lastName: z.string().min(3, "Last name must be at least 3 characters"),
   username: z.string().min(6, "Username must be at least 6 characters"),
+  email: z.string(),
   password: z.string().min(8, "Password must be at least 8 characters"),
   confirmPassword: z.string(),
 });
@@ -36,12 +37,13 @@ export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
-  const form = useForm<UserModelForm>({
+  const form = useForm<RegisterForm>({
     resolver: zodResolver(profileSchema),
     defaultValues: {
       firstName: "John",
       lastName: "Doe",
       username: "johndoe",
+      email: "johndoe@gmail.com",
       password: "password",
       confirmPassword: "password",
     },
@@ -109,6 +111,19 @@ export default function ProfilePage() {
                     <FormLabel>Nombre de usuario</FormLabel>
                     <FormControl>
                       <Input {...field} disabled={!isEditing} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email</FormLabel>
+                    <FormControl>
+                      <Input {...field} disabled />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
