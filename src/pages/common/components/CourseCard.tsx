@@ -1,4 +1,4 @@
-import { Roles } from "../../../../models/user.model";
+import { Roles } from "@/models/user.model";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import {
@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { ModalListUsers } from "@/components/ui/ModalListUsers";
+import { ModalListUsers } from "@/components/ui/modal-list-users";
 
 function CourseCard({
   title,

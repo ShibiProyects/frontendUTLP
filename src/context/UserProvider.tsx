@@ -1,7 +1,7 @@
 import React, { ReactNode, useContext, useEffect, useState } from "react";
-import { Roles, UserModel } from "../models/user.model";
+import { Roles, UserModel } from "@/models/user.model";
 import { useNavigate } from "react-router";
-import { PublicRoutes } from "../routes/routes";
+import { PublicRoutes } from "@/routes/routes";
 
 interface UserContextType {
   user: UserModel | null;

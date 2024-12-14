@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { TextField } from "../../components/TextField";
 import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
-import { UserModelForm } from "../../../models/user.model";
+import { UserModelForm } from "@/features/auth/user.model";
+import { TextField } from "@/features/auth/components/TextField";
 
 function RegisterPage() {
   const {

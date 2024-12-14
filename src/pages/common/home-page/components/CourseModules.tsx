@@ -1,4 +1,4 @@
-import ModuleItem from "./components/ModuleItem";
+import ModuleItem from "../../course-modules/components/ModuleItem";
 
 function CourseModules() {
   const modules = [

@@ -1,12 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { PublicRoutes, StudentRoutes, TeacherRoutes } from "../routes/routes";
-import LoginPage from "./auth/login/LoginPage";
 import Student from "./pages/student/Student";
+import RegisterPage from "./pages/auth/register/RegisterPage";
+import LoginPage from "./pages/auth/login/LoginPage";
+import { UserProvider } from "./context/UserProvider";
+import AuthGuard from "./utilities/AuthGuard";
+import { Roles } from "./models/user.model";
 import Teacher from "./pages/teacher/Teacher";
-import RegisterPage from "./auth/register/RegisterPage";
-import { UserProvider } from "../context/UserProvider";
-import AuthGuard from "../utilities/AuthGuard";
-import { Roles } from "../models/user.model";
+import { PublicRoutes, StudentRoutes, TeacherRoutes } from "./routes/routes";
 
 function App() {
   return (

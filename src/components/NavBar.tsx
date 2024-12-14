@@ -1,13 +1,9 @@
 import { Link } from "react-router-dom";
-import {
-  CommonRoutes,
-  StudentRoutes,
-  TeacherRoutes,
-} from "../../routes/routes";
-import { useUserContext } from "../../context/UserProvider";
+import { CommonRoutes, StudentRoutes, TeacherRoutes } from "@/routes/routes";
 import { ReactNode } from "react";
-import { Roles } from "../../models/user.model";
 import { Button } from "./ui/button";
+import { useUserContext } from "@/context/UserProvider";
+import { Roles } from "@/models/user.model";
 
 function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
   const { logout } = useUserContext();

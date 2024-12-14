@@ -67,7 +67,7 @@ export function ModalListUsers() {
       </DialogTrigger>
       <DialogContent className="min-w-[40vw] min-h-[80vh] ">
         <DialogHeader>
-          <DialogTitle>University Users</DialogTitle>
+          <DialogTitle>Participantes del curso</DialogTitle>
         </DialogHeader>
         <div className="mb-4">
           <Input

@@ -1,11 +1,7 @@
-import { useUserContext } from "../../../../context/UserProvider";
+import { useUserContext } from "@/context/UserProvider";
 import CourseCard from "../components/CourseCard";
-import { Roles } from "../../../../models/user.model";
-import {
-  CommonRoutes,
-  StudentRoutes,
-  TeacherRoutes,
-} from "../../../../routes/routes";
+import { Roles } from "@/models/user.model";
+import { CommonRoutes, StudentRoutes, TeacherRoutes } from "@/routes/routes";
 
 function HomePage() {
   const { user } = useUserContext();

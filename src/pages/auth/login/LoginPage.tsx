@@ -1,14 +1,10 @@
 import { useForm } from "react-hook-form";
-import { TextField } from "../../components/TextField";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  PublicRoutes,
-  StudentRoutes,
-  TeacherRoutes,
-} from "../../../routes/routes";
-import { useUserContext } from "../../../context/UserProvider";
-import { Roles } from "../../../models/user.model";
-import decodeJWT from "../../../utilities/decodeJWT";
+import { PublicRoutes, StudentRoutes, TeacherRoutes } from "@/routes/routes";
+import { useUserContext } from "@/context/UserProvider";
+import { Roles } from "@/models/user.model";
+import decodeJWT from "@/utilities/decodeJWT";
+import { TextField } from "@/features/auth/components/TextField";
 
 type LoginForm = {
   email: string;

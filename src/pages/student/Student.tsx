@@ -1,10 +1,10 @@
 import { Navigate, Route, Routes } from "react-router";
-import { CommonRoutes } from "../../../routes/routes";
+import { CommonRoutes } from "@/routes/routes";
 import HomePage from "../common/home-page/HomePage";
 import AccountPage from "../common/account-page/AccountPage";
-import CourseModules from "../common/course-modules/CourseModules";
 import NavBar from "../../components/NavBar";
-import { Roles } from "../../../models/user.model";
+import CourseModules from "../common/home-page/components/CourseModules";
+import { Roles } from "@/models/user.model";
 
 function Student() {
   return (
