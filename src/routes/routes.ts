@@ -16,4 +16,5 @@ export enum StudentRoutes {
 export enum TeacherRoutes {
   TEACHER = "teacher",
   DASHBOARD = "dashboard",
+  STUDENT_DETAILS = "student-details",
 }

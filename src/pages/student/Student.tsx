@@ -3,7 +3,7 @@ import { CommonRoutes } from "@/routes/routes";
 import HomePage from "../common/home-page/HomePage";
 import AccountPage from "../common/account-page/AccountPage";
 import NavBar from "../../components/NavBar";
-import CourseModules from "../common/home-page/components/CourseModules";
+import CourseModules from "../common/course-modules/components/CourseModules";
 import { Roles } from "@/models/user.model";
 
 function Student() {

@@ -1,5 +1,5 @@
 import { useUserContext } from "@/context/UserProvider";
-import CourseCard from "../components/CourseCard";
+import CourseCard from "./components/CourseCard";
 import { Roles } from "@/models/user.model";
 import { CommonRoutes, StudentRoutes, TeacherRoutes } from "@/routes/routes";
 
@@ -31,24 +31,28 @@ function HomePage() {
             teacher="Gentleman programing"
             href={`/${TeacherRoutes.TEACHER}/${CommonRoutes.COURSE_MODULES}`}
             role={Roles.TEACHER_ROLE}
+            img_url="/a.jpg"
           />
           <CourseCard
             title="BDD - 1"
             teacher="Gentleman programing"
             href={`/${TeacherRoutes.TEACHER}/${CommonRoutes.COURSE_MODULES}`}
             role={Roles.TEACHER_ROLE}
+            img_url="/a.jpg"
           />
           <CourseCard
             title="BDD - 1"
             teacher="Gentleman programing"
             href={`/${TeacherRoutes.TEACHER}/${CommonRoutes.COURSE_MODULES}`}
             role={Roles.TEACHER_ROLE}
+            img_url="/a.jpg"
           />
           <CourseCard
             title="BDD - 1"
             teacher="Gentleman programing"
             href={`/${TeacherRoutes.TEACHER}/${CommonRoutes.COURSE_MODULES}`}
             role={Roles.TEACHER_ROLE}
+            img_url="/a.jpg"
           />
         </>
       ) : (
@@ -57,6 +61,7 @@ function HomePage() {
           teacher="Gentleman programing"
           href={`/${StudentRoutes.STUDENT}/${CommonRoutes.COURSE_MODULES}`}
           role={Roles.STUDENT_ROLE}
+          img_url="/a.jpg"
         />
       )}
     </div>

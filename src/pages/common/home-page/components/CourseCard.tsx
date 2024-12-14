@@ -9,21 +9,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { ModalListUsers } from "@/components/ui/modal-list-users";
+import { CourseCardModel } from "../models/course.card";
 
-function CourseCard({
-  title,
-  teacher,
-  href,
-  role,
-}: {
-  title: string;
-  teacher: string;
-  href: string;
-  role: Roles;
-}) {
+function CourseCard({ title, teacher, href, role, img_url }: CourseCardModel) {
   return (
     <Card className="relative w-[550px] bg-slate-200  text-center mb-5">
-      <img src="/a.png" className="h-[350px] w-full  " />
+      <img src={img_url} className="h-[350px] w-full  " />
       <div>
         <CardHeader>
           <CardTitle>

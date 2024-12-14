@@ -5,11 +5,7 @@ import { useUserContext } from "@/context/UserProvider";
 import { Roles } from "@/models/user.model";
 import decodeJWT from "@/utilities/decodeJWT";
 import { TextField } from "@/features/auth/components/TextField";
-
-type LoginForm = {
-  email: string;
-  password: string;
-};
+import { LoginForm } from "@/features/auth/auth.model";
 
 function LoginPage() {
   const navigate = useNavigate();

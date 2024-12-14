@@ -12,6 +12,8 @@ import {
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
+import { TeacherRoutes } from "@/routes/routes";
 
 const users = [
   { id: 1, name: "John Emily", role: "Student", status: "active" },
@@ -78,23 +80,23 @@ export function ModalListUsers() {
         </div>
         <ScrollArea className="h-[50vh] w-full rounded-md border p-4">
           <div className="  space-y-4">
-            {filteredUsers.map((user) => (
-              <div key={user.id} className="flex  items-center justify-between">
+            {filteredUsers.map(({ id, status, name, role }) => (
+              <Link
+                className="flex  items-center justify-between"
+                key={id}
+                to={`/${TeacherRoutes.TEACHER}/${TeacherRoutes.STUDENT_DETAILS}/${id}`}
+              >
                 <div className="flex items-center space-x-4">
                   <div
-                    className={`w-3 h-3 rounded-full ${getStatusColor(
-                      user.status
-                    )}`}
+                    className={`w-3 h-3 rounded-full ${getStatusColor(status)}`}
                   />
                   <div>
-                    <p className="text-sm font-medium leading-none">
-                      {user.name}
-                    </p>
-                    <p className="text-sm text-muted-foreground">{user.role}</p>
+                    <p className="text-sm font-medium leading-none">{name}</p>
+                    <p className="text-sm text-muted-foreground">{role}</p>
                   </div>
                 </div>
-                <Badge variant="outline">{user.status}</Badge>
-              </div>
+                <Badge variant="outline">{status}</Badge>
+              </Link>
             ))}
           </div>
         </ScrollArea>

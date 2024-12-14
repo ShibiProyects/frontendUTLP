@@ -20,7 +20,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/features/auth/components/form";
-import { UserModelForm } from "@/features/auth/user.model";
+import { UserModelForm } from "@/features/auth/auth.model";
 
 const profileSchema = z.object({
   firstName: z.string().min(3, "First name must be at least 3 characters"),
