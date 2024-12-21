@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { PublicRoutes } from "../../../routes/routes";
 import { TextField } from "@/features/auth/components/TextField";
 import { RegisterForm } from "@/features/auth/auth.model";
+import { Button } from "@/components/ui/button";
 
 function RegisterPage() {
   const {
@@ -18,14 +19,16 @@ function RegisterPage() {
 
   return (
     <>
-      <nav className=" h-[40px] bg-blue-300 flex justify-around items-center ">
+      <nav className="h-[40px] bg-blue text-white font-semibold py-5 flex justify-around items-center ">
         <Link to={`/${PublicRoutes.REGISTER}`} replace>
-          Register
+          Crear cuenta
         </Link>
-        <Link to={`/${PublicRoutes.LOGIN}`}>Login</Link>
+        <Link to={`/${PublicRoutes.LOGIN}`} replace>
+          Iniciar sesión
+        </Link>
       </nav>
       <div className="h-full items-center justify-center flex flex-col ">
-        <h3>Register</h3>
+        <h3>Crear cuenta</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col mb-4 gap-1">
             <TextField
@@ -107,8 +110,9 @@ function RegisterPage() {
               error={errors.confirmPassword?.message}
             />
           </div>
-
-          <button type="submit">Register</button>
+          <Button type="submit" variant="default">
+            Crear cuenta
+          </Button>
         </form>
       </div>
     </>

@@ -23,7 +23,7 @@ function HomePage() {
   //   .catch((error) => console.error(error));
 
   return (
-    <div className=" p-3 flex flex-wrap justify-between">
+    <div className="   p-3 flex flex-wrap justify-between">
       {user?.role == Roles.TEACHER_ROLE ? (
         <>
           <CourseCard
@@ -31,7 +31,7 @@ function HomePage() {
             teacher="Gentleman programing"
             href={`/${TeacherRoutes.TEACHER}/${CommonRoutes.COURSE_MODULES}`}
             role={Roles.TEACHER_ROLE}
-            img_url="/a.jpg"
+            img_url="/2.png"
           />
           <CourseCard
             title="BDD - 1"

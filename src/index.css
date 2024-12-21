@@ -12,14 +12,19 @@
   --p: 1.1rem;
   --a: 1rem;
 
-  --success: #27a745;
+  --blue: #173f5f;
+  --info: #20639b;
+  --accent: #3caea3;
+  --yellow: #f6d55c;
   --danger: #dc3544;
-  --warning: #ffc107;
-  --info: #15a5b9;
-
   --dark: #435057;
+  --bg-inputs: #f1f3f5;
+  --icons-secondary: #adb5bd;
 
-  --bg_inputs: #f1f2f4;
+  --text1: #212429;
+  --text2: #495057;
+  --text3: #878e95;
+  --text4: #212429;
 }
 
 * {

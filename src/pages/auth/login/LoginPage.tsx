@@ -6,6 +6,7 @@ import { Roles } from "@/models/user.model";
 import decodeJWT from "@/utilities/decodeJWT";
 import { TextField } from "@/features/auth/components/TextField";
 import { LoginForm } from "@/features/auth/auth.model";
+import { Button } from "@/components/ui/button";
 
 function LoginPage() {
   const navigate = useNavigate();
@@ -56,16 +57,16 @@ function LoginPage() {
 
   return (
     <>
-      <nav className=" h-[40px] bg-blue-300 flex justify-around items-center ">
+      <nav className="h-[40px] bg-blue text-white font-semibold py-5 flex justify-around items-center ">
         <Link to={`/${PublicRoutes.REGISTER}`} replace>
-          Register
+          Crear cuenta
         </Link>
         <Link to={`/${PublicRoutes.LOGIN}`} replace>
-          Login
+          Iniciar sesión
         </Link>
       </nav>
       <div className="h-full items-center justify-center flex flex-col">
-        <h3>Login</h3>
+        <h3>Iniciar sesión</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col mb-4 gap-1">
             <TextField
@@ -95,7 +96,9 @@ function LoginPage() {
             />
           </div>
 
-          <button type="submit">Login</button>
+          <Button type="submit" variant="default">
+            Iniciar sesión
+          </Button>
         </form>
       </div>
     </>

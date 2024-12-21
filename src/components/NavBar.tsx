@@ -14,7 +14,7 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
   };
 
   return (
-    <nav className=" h-[60px] bg-ring text-white flex  justify-around items-center ">
+    <nav className=" font-semibold h-[60px] bg-blue text-white   flex  justify-around items-center ">
       <Link to={`/${routeMain()}/${CommonRoutes.HOME}`} replace>
         Home
       </Link>
@@ -24,7 +24,7 @@ function NavBar({ children, role }: { children?: ReactNode; role: Roles }) {
       {children}
 
       <Button
-        className="text-white  p-2 rounded-lg font-semibold"
+        className="text-white p-2 rounded-lg font-semibold"
         onClick={logout}
         variant="destructive"
       >

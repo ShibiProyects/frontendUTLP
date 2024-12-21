@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -79,16 +77,18 @@ export function ModalListUsers() {
           />
         </div>
         <ScrollArea className="h-[50vh] w-full rounded-md border p-4">
-          <div className="  space-y-4">
+          <div className="">
             {filteredUsers.map(({ id, status, name, role }) => (
               <Link
-                className="flex  items-center justify-between"
+                className=" flex hover:bg-slate-200/70 p-3  items-center justify-between"
                 key={id}
                 to={`/${TeacherRoutes.TEACHER}/${TeacherRoutes.STUDENT_DETAILS}/${id}`}
               >
-                <div className="flex items-center space-x-4">
+                <div className="  flex items-center space-x-4">
                   <div
-                    className={`w-3 h-3 rounded-full ${getStatusColor(status)}`}
+                    className={` w-3 h-3 rounded-full ${getStatusColor(
+                      status
+                    )}`}
                   />
                   <div>
                     <p className="text-sm font-medium leading-none">{name}</p>

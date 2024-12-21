@@ -13,8 +13,8 @@ import { CourseCardModel } from "../models/course.card";
 
 function CourseCard({ title, teacher, href, role, img_url }: CourseCardModel) {
   return (
-    <Card className="relative w-[550px] bg-slate-200  text-center mb-5">
-      <img src={img_url} className="h-[350px] w-full  " />
+    <Card className="relative w-[550px] bg-slate-200 rounded-t-lg overflow-hidden  text-center mb-5">
+      <img src={img_url} className="h-[350px] w-full" alt={title} />
       <div>
         <CardHeader>
           <CardTitle>
