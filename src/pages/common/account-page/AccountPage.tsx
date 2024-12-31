@@ -19,7 +19,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/features/auth/components/form";
+} from "@/pages/auth/components/form";
 import { RegisterForm } from "@/features/auth/auth.model";
 
 const profileSchema = z.object({

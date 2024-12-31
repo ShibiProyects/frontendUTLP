@@ -1,13 +1,13 @@
 import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import { PublicRoutes, StudentRoutes, TeacherRoutes } from "@/routes/routes";
 import { useUserContext } from "@/context/UserProvider";
 import { Roles } from "@/models/user.model";
 import decodeJWT from "@/utilities/decodeJWT";
-import { TextField } from "@/features/auth/components/TextField";
-import { LoginForm } from "@/features/auth/auth.model";
+import { TextField } from "@/pages/auth/components/TextField";
 import { Button } from "@/components/ui/button";
-
+import { LoginModel } from "./models/auth.model";
+import { useNavigate } from "react-router";
+import NavForm from "./components/NavForm";
 function LoginPage() {
   const navigate = useNavigate();
   const { createUser } = useUserContext();
@@ -15,9 +15,9 @@ function LoginPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginForm>();
+  } = useForm<LoginModel>();
 
-  const onSubmit = async (data: LoginForm) => {
+  const onSubmit = async (data: LoginModel) => {
     createUser(data.email, Roles.TEACHER_ROLE);
     navigate(`/${TeacherRoutes.TEACHER}`, { replace: true });
 
@@ -57,14 +57,7 @@ function LoginPage() {
 
   return (
     <>
-      <nav className="h-[40px] bg-blue text-white font-semibold py-5 flex justify-around items-center ">
-        <Link to={`/${PublicRoutes.REGISTER}`} replace>
-          Crear cuenta
-        </Link>
-        <Link to={`/${PublicRoutes.LOGIN}`} replace>
-          Iniciar sesión
-        </Link>
-      </nav>
+      <NavForm />
       <div className="h-full items-center justify-center flex flex-col">
         <h3>Iniciar sesión</h3>
         <form onSubmit={handleSubmit(onSubmit)}>

@@ -1,4 +1,4 @@
-export type RegisterForm = {
+export type RegisterModel = {
   firstName: string;
   lastName: string;
   username: string;
@@ -7,7 +7,7 @@ export type RegisterForm = {
   confirmPassword: string;
 };
 
-export type LoginForm = {
+export type LoginModel = {
   email: string;
   password: string;
 };

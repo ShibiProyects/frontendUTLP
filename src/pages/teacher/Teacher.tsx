@@ -1,13 +1,13 @@
 import { Navigate, Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
 import { CommonRoutes, TeacherRoutes } from "@/routes/routes";
-import DashboardPage from "./dashboard/DashboardPage";
+import DashboardPage from "./Dashboard";
 import AccountPage from "../common/account-page/AccountPage";
 import HomePage from "../common/home-page/HomePage";
 import NavBar from "../../components/NavBar";
 import CourseModules from "../common/course-modules/components/CourseModules";
 import { Roles } from "@/models/user.model";
-import StudentDetails from "./student-details/StudentDetails";
+import StudentDetails from "./StudentDetails";
 
 function Teacher() {
   return (

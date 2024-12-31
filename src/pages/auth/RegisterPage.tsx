@@ -1,32 +1,25 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { PublicRoutes } from "../../../routes/routes";
-import { TextField } from "@/features/auth/components/TextField";
-import { RegisterForm } from "@/features/auth/auth.model";
+import { TextField } from "@/pages/auth/components/TextField";
 import { Button } from "@/components/ui/button";
+import { RegisterModel } from "./models/auth.model";
+import { PublicRoutes } from "@/routes/routes";
+import NavForm from "./components/NavForm";
 
 function RegisterPage() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<RegisterForm>();
+  } = useForm<RegisterModel>();
 
-  const onSubmit = (data: RegisterForm) => {
+  const onSubmit = (data: RegisterModel) => {
     console.log(data);
     if (data.password !== data.confirmPassword) alert("Password dont match");
   };
 
   return (
     <>
-      <nav className="h-[40px] bg-blue text-white font-semibold py-5 flex justify-around items-center ">
-        <Link to={`/${PublicRoutes.REGISTER}`} replace>
-          Crear cuenta
-        </Link>
-        <Link to={`/${PublicRoutes.LOGIN}`} replace>
-          Iniciar sesión
-        </Link>
-      </nav>
+      <NavForm />
       <div className="h-full items-center justify-center flex flex-col ">
         <h3>Crear cuenta</h3>
         <form onSubmit={handleSubmit(onSubmit)}>
